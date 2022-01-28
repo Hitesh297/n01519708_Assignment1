@@ -7,28 +7,32 @@ using System.Web.Http;
 
 namespace n01519708_assignment1_w2022.Controllers
 {
-    /// <summary>
-    /// This class is used to do some random calculation
-    /// </summary>
     public class NumberMachineController : ApiController
     {
 
         /// <summary>
-        /// Takes number as an input and does a fake billing calculation
+        /// Takes quantity as input and returns cost after discount
         /// </summary>
         /// <param name="id">Takes number as a parameter</param>
-        /// <returns>Return a decimal number after calculations</returns>
-        public decimal Get(int id)
+        /// <returns>Return a number after calculations</returns>
+        /// Example:
+        /// /NumberMachine/0 --> 0
+        /// /NumberMachine/1 --> 10.1
+        /// /NumberMachine/2 --> 20.2
+        /// /NumberMachine/4 --> 40.4
+        /// /NumberMachine/5 --> 40.4
+        public double Get(int id)
         {
-            int quantity = id;
-            int costOf1IceCream = 10;
-            decimal totalDiscount = 2 * (quantity/5);
-            decimal costWithoutTax = (costOf1IceCream * quantity) - totalDiscount;
-            decimal tax = costWithoutTax * 0.01M;
-            decimal total = costWithoutTax + tax;
-            decimal costPerPerson = total / id;
+            double quantity = id;
+            double costOf1IceCream = 10.0;
+            double discountRate = Math.Floor(quantity / 5.0);
+            //one ice cream free on each buy of 5
+            double totalDiscount = costOf1IceCream * discountRate;
+            double costWithoutTax = (costOf1IceCream * quantity) - totalDiscount;
+            double tax = costWithoutTax * 0.01;
+            double total = costWithoutTax + tax;
             
-            return costPerPerson;
+            return total;
         }
     }
 }

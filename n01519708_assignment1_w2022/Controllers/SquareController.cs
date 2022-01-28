@@ -7,9 +7,6 @@ using System.Web.Http;
 
 namespace n01519708_assignment1_w2022.Controllers
 {
-    /// <summary>
-    /// This class does square
-    /// </summary>
     public class SquareController : ApiController
     {
 
@@ -18,9 +15,9 @@ namespace n01519708_assignment1_w2022.Controllers
         /// </summary>
         /// <param name="id">Takes a number as a parameter</param>
         /// <returns>Returns the square of the input parameter</returns>
-        /// GET localhost/Square/2 --> 4
-        /// GET localhost/Square/-2 --> 4
-        /// GET localhost/Square/10 --> 100
+        /// GET /Square/2 --> 4
+        /// GET /Square/-2 --> 4
+        /// GET /Square/10 --> 100
         public int Get(int id)
         {
             int square = id * id;

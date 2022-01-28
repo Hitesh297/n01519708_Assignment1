@@ -7,9 +7,6 @@ using System.Web.Http;
 
 namespace n01519708_assignment1_w2022.Controllers
 {
-    /// <summary>
-    /// This class does addition
-    /// </summary>
     public class AddTenController : ApiController
     {
 
@@ -18,9 +15,9 @@ namespace n01519708_assignment1_w2022.Controllers
         /// </summary>
         /// <param name="id">Takes a number as parameter</param>
         /// <returns>Return a value by adding 10 to the input</returns>
-        /// // GET AddTen/21 --> 31
-        // GET AddTen/0 --> 10
-        // GET AddTen/-9 --> 1
+        /// GET AddTen/21 --> 31
+        /// GET AddTen/0 --> 10
+        /// GET AddTen/-9 --> 1
         public int Get(int id)
         {
             const int number = 10;
